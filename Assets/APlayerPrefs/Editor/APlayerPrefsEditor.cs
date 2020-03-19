@@ -6,13 +6,13 @@ namespace Dands.APlayerPrefs
 {
     public class APlayerPrefsEditor : Editor
     {
-        [MenuItem("Dands/APlayerPrefs/Clear")]
+        [MenuItem("APlayerPrefs/Clear")]
         public static void ClearData()
         {
-            APlayerPrefs.ClearData();
+            APlayerPrefs.DeleteAll();
         }
 
-        [MenuItem("Dands/APlayerPrefs/Open save location")]
+        [MenuItem("APlayerPrefs/Open save location")]
         public static void OpenSaveLocation()
         {
             Process.Start(Application.persistentDataPath);
