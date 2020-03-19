@@ -1,21 +1,31 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Dands.Utils.StaticCoroutines;
 using Newtonsoft.Json;
 using UnityEngine;
 namespace Dands.APlayerPrefs
 {
     public static class APlayerPrefs
     {
+        private const bool AUTO_SAVE = true;
+        private const float TIME_AUTO_SAVE = 1f;
+        private static WaitForSeconds DELAY_SAVE;
         private const string SAVE_FILE_NAME = "playerPrefs";
 
         private static Dictionary<string, string> _playerPrefs;
-
+        private static bool _needsSaving;
         public static void Setup()
         {
             _playerPrefs = new Dictionary<string, string>();
+            DELAY_SAVE = new WaitForSeconds(TIME_AUTO_SAVE);
 
             LoadData();
+
+            if (AUTO_SAVE)
+            {
+                StaticCoroutine.DoCoroutine(AutoSave());
+            }
         }
 
         private static void LoadData()
@@ -34,6 +44,21 @@ namespace Dands.APlayerPrefs
         private static void SaveData()
         {
             SaveSystem.Save(_playerPrefs, SAVE_FILE_NAME);
+            _needsSaving = false;
+        }
+
+        private static IEnumerator AutoSave()
+        {
+            Debug.Log("AutoSave");
+            
+            if (_needsSaving)
+            {
+                SaveData();
+            }
+
+            yield return DELAY_SAVE;
+            
+            StaticCoroutine.DoCoroutine(AutoSave());
         }
 
         private static void SetDictionary(string key, string value)
@@ -45,14 +70,14 @@ namespace Dands.APlayerPrefs
                 if (_playerPrefs[keyUpper] != value)
                 {
                     _playerPrefs[keyUpper] = value;
+                    _needsSaving = true;
                 }
             }
             else
             {
                 _playerPrefs.Add(keyUpper, value);
+                _needsSaving = true;
             }
-            
-            SaveData();
         }
 
         private static string GetDictionary(string key)
@@ -198,6 +223,7 @@ namespace Dands.APlayerPrefs
             if (HasKey(keyUpper))
             {
                 _playerPrefs.Remove(keyUpper);
+                _needsSaving = true;
             }
         }
     }
