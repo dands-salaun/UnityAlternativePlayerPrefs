@@ -22,6 +22,10 @@ At the top of the script FileBasedPrefs.cs you can specify what name you would l
 
 ## Usage
 
+### Setup
+Use `APlayerPrefs.Setup();` in any MonoBehaviour to initialize and configure APlayerPrefs.
+
+
 ### Set
 
 ```csharp
@@ -70,4 +74,4 @@ This means that the save data is stored in memory until you specifically tell it
 
 You can open the directory where the file was saved and you can clear all data from the file.
 
-![Edit Util](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util")
+[![Edit Util](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util" "Edit Util")](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util" "Edit Util")
