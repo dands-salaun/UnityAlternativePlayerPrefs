@@ -45,36 +45,63 @@ namespace Dands.APlayerPrefs
         {
             SetDictionary(key, value.ToString());
         }
-
+        
+        /// <summary>
+        /// Save FLOAT data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         public static void SetFloat(string key, float value)
         {
             SetDictionary(key, value.ToString());
         }
-
+        
+        /// <summary>
+        /// Save STRING data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         public static void SetString(string key, string value)
         {
             SetDictionary(key, value);
         }
 
-
+        /// <summary>
+        /// Save BOOL data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         public static void SetBool(string key, bool value)
         {
             SetDictionary(key, value.ToString());
         }
 
-
+        /// <summary>
+        /// Save DOUBLE data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         public static void SetDouble(string key, double value)
         {
             SetDictionary(key, value.ToString());
         }
 
-
+        /// <summary>
+        /// Save LONG data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         public static void SetLong(string key, long value)
         {
             SetDictionary(key, value.ToString());
         }
 
-        public static void SaveObject(string key, object value)
+        /// <summary>
+        /// Save CUSTOM data, identified with a key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
+        public static void SaveObject<T>(string key, T value)
         {
             var json = JsonConvert.SerializeObject(value);
             SetString(key, json);
@@ -85,6 +112,11 @@ namespace Dands.APlayerPrefs
 
         #region Get
 
+        /// <summary>
+        /// Load STRING data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded STRING value</returns>
         public static string GetString(string key)
         {
             return GetDictionary(key);
@@ -109,6 +141,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// Load FLOAT data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded FLOAT value</returns>
         public static float GetFloat(string key)
         {
             var value = GetDictionary(key);
@@ -123,6 +160,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// Load LONG data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded LONG value</returns>
         public static long GetLong(string key)
         {
             var value = GetDictionary(key);
@@ -137,6 +179,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// Load DOUBLE data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded DOLBLE value</returns>
         public static double GetDouble(string key)
         {
             var value = GetDictionary(key);
@@ -151,6 +198,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// Load BOOL data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded BOOL value</returns>
         public static bool GetBool(string key)
         {
             var value = GetDictionary(key);
@@ -165,6 +217,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// Load CUSTOM data, identified by key
+        /// </summary>
+        /// <param name="key">The key the data is identified with</param>
+        /// <returns>The loaded CUSTOM value</returns>
         public static T GetObject<T>(string key)
         {
             var load = GetString(key);
@@ -175,8 +232,9 @@ namespace Dands.APlayerPrefs
         #endregion
 
         #region Util
+        
         /// <summary>
-        /// Public method to manualy save APlayerPrefs
+        /// Public method to manually save APlayerPrefs
         /// </summary>
         public static void Save()
         {
@@ -184,7 +242,7 @@ namespace Dands.APlayerPrefs
         }
     
         /// <summary>
-        /// Check if saved data exists identified by this key
+        /// Returns true if key exists in the preferences.
         /// </summary>
         private static bool HasKey(string key)
         {
@@ -193,7 +251,7 @@ namespace Dands.APlayerPrefs
         }
         
         /// <summary>
-        /// Delete all the saved data in GameValues. Be very very careful with this!
+        /// Removes all keys and values from the preferences. Use with caution.
         /// </summary>
         public static void DeleteAll()
         {
@@ -203,7 +261,7 @@ namespace Dands.APlayerPrefs
         }
 
         /// <summary>
-        /// Delete the data saved at this key, if there is any
+        /// Removes key and its corresponding value from the preferences.
         /// </summary>
         /// <param name="key"></param>
         public static void DeleteKey(string key)
@@ -222,6 +280,10 @@ namespace Dands.APlayerPrefs
 
         #region Read and write
 
+        /// <summary>
+        /// Load all data into the dictionary
+        /// </summary>
+        
         private static void Load()
         {
             var data = SaveSystem.Load<Dictionary<string, string>>(SAVE_FILE_NAME);
@@ -235,12 +297,19 @@ namespace Dands.APlayerPrefs
 
         }
         
+        /// <summary>
+        /// saves all dictionary data
+        /// </summary>
         private static void SaveData()
         {
             SaveSystem.Save(_playerPrefs, SAVE_FILE_NAME);
             _needsSaving = false;
         }
         
+        /// <summary>
+        /// Coroutine to autosave
+        /// </summary>
+        /// <returns></returns>
         private static IEnumerator AutoSave()
         {
             Debug.Log("AutoSave");
@@ -259,6 +328,11 @@ namespace Dands.APlayerPrefs
 
         #region Auxiliary methods
 
+        /// <summary>
+        /// Add or update value in dictionary
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <param name="value">The data to save</param>
         private static void SetDictionary(string key, string value)
         {
             string keyUpper = key.ToUpper();
@@ -278,6 +352,11 @@ namespace Dands.APlayerPrefs
             }
         }
 
+        /// <summary>
+        /// load value associated with key
+        /// </summary>
+        /// <param name="key">The key to identify the data with</param>
+        /// <returns></returns>
         private static string GetDictionary(string key)
         {
             string keyUpper = key.ToUpper();

@@ -10,11 +10,11 @@
       <e p="Assets" t="Include">
         <e p="APlayerPrefs" t="Include">
           <e p="DemoAPlayerPrefs.cs" t="Include" />
-          <e p="Editor" t="Include">
-            <e p="APlayerPrefsEditor.cs" t="Include" />
-          </e>
           <e p="Scripts" t="Include">
             <e p="APlayerPrefs.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="APlayerPrefsEditor.cs" t="Include" />
+            </e>
             <e p="SaveSystem.cs" t="Include" />
           </e>
         </e>
