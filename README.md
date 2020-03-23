@@ -65,3 +65,9 @@ If set to true (the default setting), it will save the data for the time interva
 If set to false, then it will only save the data to file when you call `APlayerPrefs.Save();`
 
 This means that the save data is stored in memory until you specifically tell it to write the file. This is much faster and causes no performance issues.
+
+## Edit Util
+
+You can open the directory where the file was saved and you can clear all data from the file.
+
+![Edit Util](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util")
