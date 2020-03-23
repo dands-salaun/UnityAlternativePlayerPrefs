@@ -1,4 +1,4 @@
-#APlayerPrefs
+# APlayerPrefs
 
 This Unity library is designed to replace the standard Unity PlayerPrefs.
 
@@ -11,18 +11,18 @@ The Library also adds some functionality such as extra record types and more ref
 Tested on Windows and Android.
 
 
-##Installation
+## Installation
 Grab the latest unity package from the [releases](https://github.com/dands-salaun/APlayerPrefs/releases "releases") tab of this repo and import it into your project.
 
 
-##Save File Name
+## Save File Name
 
 At the top of the script FileBasedPrefs.cs you can specify what name you would like your save file to have in the string `SAVE_FILE_NAME`.
 
 
-##Usage
+## Usage
 
-###Set
+### Set
 
 ```csharp
 APlayerPrefs.SetString(string key, string value);
@@ -33,7 +33,7 @@ APlayerPrefs.SetLong(string key, long value);
 APlayerPrefs.SetBool(string key, string value);
 APlayerPrefs.SaveObject<T>(string key, T value);
 ```
-###Get
+### Get
 ```csharp
 APlayerPrefs.GetString(string key);
 APlayerPrefs.GetInt(string key);
@@ -45,7 +45,7 @@ APlayerPrefs.GetObject<T>(string key);
 
 ```
 
-###Utils
+### Utils
 
 ```csharp
 APlayerPrefs.Save();
@@ -57,7 +57,7 @@ APlayerPrefs.Deletekey();
 
 
 
-##Manual File writing
+## Manual File writing
 At the top of FileBasedPrefs.cs is a bool named `AUTO_SAVE`;
 
 If set to true (the default setting), it will save the data for the time interval defined in `DELAY_SAVE`.
@@ -65,5 +65,3 @@ If set to true (the default setting), it will save the data for the time interva
 If set to false, then it will only save the data to file when you call `APlayerPrefs.Save();`
 
 This means that the save data is stored in memory until you specifically tell it to write the file. This is much faster and causes no performance issues.
-
-
