@@ -15,9 +15,9 @@ Tested on Windows and Android.
 Grab the latest unity package from the [releases](https://github.com/dands-salaun/APlayerPrefs/releases "releases") tab of this repo and import it into your project.
 
 
-## Save File Name
+## Settings
 
-At the top of the script FileBasedPrefs.cs you can specify what name you would like your save file to have in the string `SAVE_FILE_NAME`.
+Just go to APlayerPrefs > Settings menu. It is possible to configure the name of the saved file, if it will have automatic saving and the interval time of each save.
 
 
 ## Usage
@@ -74,4 +74,4 @@ This means that the save data is stored in memory until you specifically tell it
 
 You can open the directory where the file was saved and you can clear all data from the file.
 
-[![Edit Util](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util")](https://github.com/dands-salaun/APlayerPrefs/blob/master/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util")
+[![Edit Util](https://github.com/dands-salaun/APlayerPrefs/blob/master/APlayerPrefs/Assets/APlayerPrefs/Documentation/Menu%20Edit.png "Edit Util")
