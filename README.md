@@ -19,9 +19,9 @@ Grab the latest unity package from the [releases](https://github.com/dands-salau
 
 Just go to APlayerPrefs > Settings menu. It is possible to configure the name of the saved file, if it will have automatic saving and the interval time of each save.
 
-[![Menu Settings](https://github.com/dands-salaun/APlayerPrefs/blob/master/APlayerPrefs/Assets/APlayerPrefs/Documentation/Settings.png "Menu Settings")]
+[![Menu Settings]](https://github.com/dands-salaun/APlayerPrefs/blob/master/APlayerPrefs/Assets/APlayerPrefs/Documentation/Settings.png "Menu Settings")
 
-[![Inspector Settings](https://github.com/dands-salaun/APlayerPrefs/blob/master/APlayerPrefs/Assets/APlayerPrefs/Documentation/Settings%20Inspector.JPG "Inspector Settings")]
+[![Inspector Settings]](https://github.com/dands-salaun/APlayerPrefs/blob/master/APlayerPrefs/Assets/APlayerPrefs/Documentation/Settings%20Inspector.JPG "Inspector Settings")
 
 ## Usage
 
